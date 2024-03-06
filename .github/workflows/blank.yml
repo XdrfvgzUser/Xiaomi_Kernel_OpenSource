@@ -28,17 +28,16 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-           sudo apt-get install -y build-essential libncurses5-dev bzip2
-           sudo apt-get install gcc-arm-linux-gnueabi -y
-           sudo apt-get install libncurses5 libncurses5-dev -y
+           sudo apt install build-essential
            cd
-           export ARCH=arm
-           export SUBARCH=arm
-           export CROSS_COMPILE=~/toolchain/toolchains/arm-eabi-4.4.3/bin/arm-eabi-
-           git clone https://android.googlesource.com/platform/prebuilt toolchain
-           git clone https://github.com/MiCode/Xiaomi_Kernel_OpenSource -b moonstone-s-oss --depth=1
-           cd Xiaomi_Kernel_OpenSource
-           make generic_defconfig
+           whereis clang
+           whereis gcc
+
+           
+          # git clone https://github.com/MiCode/Xiaomi_Kernel_OpenSource -b moonstone-s-oss --depth=1
+        
+          # cd Xiaomi_Kernel_OpenSource
+          # make generic_defconfig
            make -j 32
            
 
