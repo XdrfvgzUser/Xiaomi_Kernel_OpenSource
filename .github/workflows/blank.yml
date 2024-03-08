@@ -43,7 +43,7 @@ jobs:
       - name: compile kernel
         run: |
             cd Xiaomi_Kernel_OpenSource
-            make O=out ARCH=arm64 generic_defconfig
+            make O=out ARCH=arm64 arch/arm/configs/generic_defconfig
 
             PATH="/usr/bin:${PATH}" \
             make -j$(nproc --all) O=out \
