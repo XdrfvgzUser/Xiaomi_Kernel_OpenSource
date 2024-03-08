@@ -36,8 +36,13 @@ jobs:
            echo `whereis clang`
            echo `whereis gcc`
            
+      - name: clone kernel
+        run: |
+            git clone -b moonstone-s-oss https://github.com/MiCode/Xiaomi_Kernel_OpenSource --depth=1
+            
       - name: compile kernel
         run: |
+            cd Xiaomi_Kernel_OpenSource
             make O=out ARCH=arm64 generic_defconfig
 
             PATH="/usr/bin:${PATH}" \
